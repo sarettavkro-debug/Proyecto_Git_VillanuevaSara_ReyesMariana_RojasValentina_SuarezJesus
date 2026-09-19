@@ -17,4 +17,3 @@ def registrar_devolucion(inventario, prestamos, codigo, usuario):
     Devuelve True si la devolución se registró, False en caso contrario.
     """
     pass
-
