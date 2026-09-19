@@ -49,7 +49,21 @@ def registrar_item(inventario, codigo, titulo, autor, categoria, cantidad_total,
  
 def listar_items(inventario):
     """Muestra en consola todos los ítems registrados."""
-    pass
+    if not inventario:
+        print("No hay ítems registrados.")
+        return []
+
+    for item in inventario:
+        print(
+            f"Código: {item.get('codigo', '')} | "
+            f"Título: {item.get('titulo', '')} | "
+            f"Autor: {item.get('autor', '')} | "
+            f"Categoría: {item.get('categoria', '')} | "
+            f"Disponible: {item.get('cantidad_disponible', 0)}/{item.get('cantidad_total', 0)} | "
+            f"Ubicación: {item.get('ubicacion', '')}"
+        )
+
+    return inventario
  
  
 def buscar_item(inventario, termino):
