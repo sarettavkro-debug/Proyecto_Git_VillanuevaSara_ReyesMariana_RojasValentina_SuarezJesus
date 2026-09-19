@@ -71,4 +71,19 @@ def buscar_item(inventario, termino):
  
     Devuelve una lista con los ítems encontrados.
     """
-    pass
+    if inventario is None:
+        return []
+
+    termino = str(termino).strip().lower() if termino is not None else ""
+    if termino == "":
+        return []
+
+    encontrados = []
+    for item in inventario:
+        codigo = str(item.get("codigo", "")).strip().lower()
+        titulo = str(item.get("titulo", "")).strip().lower()
+
+        if codigo == termino or termino in titulo:
+            encontrados.append(item)
+
+    return encontrados
