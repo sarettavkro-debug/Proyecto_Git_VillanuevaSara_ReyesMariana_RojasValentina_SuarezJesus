@@ -32,3 +32,7 @@ https://github.com/sarettavkro-debug/Proyecto_Git_VillanuevaSara_ReyesMariana_Ro
 
 ## Comandos de Git utilizados
 (Espacio para los desarrolladores)
+
+jesus y Valentina
+
+link: 
