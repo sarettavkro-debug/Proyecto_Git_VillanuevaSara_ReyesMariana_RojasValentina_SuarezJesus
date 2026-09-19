@@ -1,5 +1,6 @@
 
 #Gestión de inventario. (Responsable: Dev 2)
+#Jesus-Perez
  
  
 def registrar_item(inventario, codigo, titulo, autor, categoria, cantidad_total, ubicacion):
