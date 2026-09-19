@@ -94,5 +94,5 @@ def registrar_devolucion(inventario, prestamos, codigo, usuario):
     return False
 
     """
-    #
+    #ssss
 
