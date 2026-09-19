@@ -10,7 +10,41 @@ def registrar_item(inventario, codigo, titulo, autor, categoria, cantidad_total,
     cantidad_total sea un entero mayor que 0.
     Devuelve el ítem creado (o None si no se pudo registrar).
     """
-    pass
+    if inventario is None:
+        return None
+
+    codigo = str(codigo).strip() if codigo is not None else ""
+    titulo = str(titulo).strip() if titulo is not None else ""
+    autor = str(autor).strip() if autor is not None else ""
+    categoria = str(categoria).strip() if categoria is not None else ""
+    ubicacion = str(ubicacion).strip() if ubicacion is not None else ""
+
+    if codigo == "" or titulo == "" or autor == "" or categoria == "" or ubicacion == "":
+        return None
+
+    if any(item.get("codigo") == codigo for item in inventario):
+        return None
+
+    try:
+        cantidad_total = int(cantidad_total)
+    except (TypeError, ValueError):
+        return None
+
+    if isinstance(cantidad_total, bool) or cantidad_total <= 0:
+        return None
+
+    item = {
+        "codigo": codigo,
+        "titulo": titulo,
+        "autor": autor,
+        "categoria": categoria,
+        "cantidad_total": cantidad_total,
+        "cantidad_disponible": cantidad_total,
+        "ubicacion": ubicacion
+    }
+
+    inventario.append(item)
+    return item
  
  
 def listar_items(inventario):
