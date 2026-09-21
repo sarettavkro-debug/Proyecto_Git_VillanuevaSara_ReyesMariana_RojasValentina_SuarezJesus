@@ -4,9 +4,12 @@
 from inventario import registrar_item
 from inventario import listar_items
 from inventario import buscar_item
+from prestamos import registrar_prestamo
+from prestamos import registrar_devolucion
 
 
-inventario=[]
+inventario={}
+prestamos={}
 
 RUTA_INVENTARIO = "inventario.json"
 RUTA_PRESTAMOS = "prestamos.json"
@@ -56,12 +59,25 @@ while True:
         termino = input("Ingrese el código o título a buscar: ")
         resultados = buscar_item(inventario, termino)
 
-    if resultados:
-        print("\n--- Ítems encontrados ---")
-        for item in resultados:
-            print(f"Código: {item.get('codigo')} | Título: {item.get('titulo')} | Autor: {item.get('autor')} | Cantidad: {item.get('cantidad_total')}")
-    else:
-        print("No se encontraron ítems que coincidan con la búsqueda.")
+        if resultados:
+            print("\n--- Ítems encontrados ---")
+            for item in resultados:
+                print(f"Código: {item.get('codigo')} | Título: {item.get('titulo')} | Autor: {item.get('autor')} | Cantidad: {item.get('cantidad_total')}")
+        else:
+            print("No se encontraron ítems que coincidan con la búsqueda.")
+        
+    elif opcion == '4':
+        codigo = input("Ingrese el código del ítem: ")
+        usuario = input("Ingrese el nombre/ID del usuario: ")
+        fecha = input("Ingrese la fecha (ej. YYYY-MM-DD): ")
+
+        registrar_prestamo(inventario, prestamos, codigo, usuario, fecha)
+        
+    elif opcion == '5':
+        codigo = input("Ingrese el código del ítem: ")
+        usuario = input("Ingrese el nombre/ID del usuario: ")
+
+        registrar_devolucion(inventario, prestamos, codigo, usuario)
         
     
     
