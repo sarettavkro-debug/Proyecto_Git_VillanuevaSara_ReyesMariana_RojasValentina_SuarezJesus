@@ -1,11 +1,8 @@
-"""BiblioStock CLI - Biblioteca Horizonte.
+#Menú principal y flujo del programa. (Responsable: Dev 1)
+#Sara Villanueva 
 
-Menú principal y flujo del programa. (Responsable: Dev 1)
-"""
-
-import inventario
-import prestamos
-import persistencia
+from inventario import registrar_item
+inventario=[]
 
 RUTA_INVENTARIO = "inventario.json"
 RUTA_PRESTAMOS = "prestamos.json"
@@ -49,3 +46,17 @@ def main():
 if __name__ == "__main__":
     main()
     
+while True:
+    print('BIBLIOSTOCK')
+    print('1. Registrar ítem')
+    print('2. Listar ítems')
+    print('3. Buscar ítem')
+    print('4. Registrar préstamo')
+    print('5. Registrar devolución')
+    print('6. Salir') 
+    
+    opcion = input("Por favor, seleccione una opcion: ")
+    
+            
+        
+        

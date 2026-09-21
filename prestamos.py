@@ -1,5 +1,6 @@
 
 #Gestión de préstamos y devoluciones. (Responsable: Dev 3)
+#Valentina Rojas 
  
  
 def registrar_prestamo(inventario, prestamos, codigo, usuario, fecha):
@@ -34,7 +35,9 @@ def registrar_prestamo(inventario, prestamos, codigo, usuario, fecha):
     item['cantidad_disponible'] -= 1
 
     print(f"Préstamo registrado: {prestamo}")
-    return prestamodef registrar_prestamo(inventario, prestamos, codigo, usuario, fecha):
+    return prestamo
+
+def registrar_prestamo(inventario, prestamos, codigo, usuario, fecha):
     
     """Registra un préstamo y descuenta 1 de cantidad_disponible.
     Debe verificar que el ítem exista y que haya disponibilidad.
@@ -93,6 +96,4 @@ def registrar_devolucion(inventario, prestamos, codigo, usuario):
     print(f"No se encontró un préstamo activo para el código {codigo} y usuario {usuario}.")
     return False
 
-    """
-    #ssss
 
