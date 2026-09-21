@@ -4,7 +4,8 @@ import json
  
 def guardar_json(ruta, datos):
     """Guarda la lista de datos en el archivo JSON indicado."""
-    pass
+    with open (ruta, 'w', encoding='utf-8') as archivo:
+        json.dump(datos, archivo, ensure_ascii=False, indent=2)
  
  
 def cargar_json(ruta):
