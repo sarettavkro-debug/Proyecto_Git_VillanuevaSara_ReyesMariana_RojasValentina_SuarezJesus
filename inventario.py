@@ -18,6 +18,7 @@ def registrar_item(inventario, codigo, titulo, autor, categoria, cantidad_total,
     titulo = str(titulo).strip() if titulo is not None else ""
     autor = str(autor).strip() if autor is not None else ""
     categoria = str(categoria).strip() if categoria is not None else ""
+    cantidad_total = str(cantidad_total).strip() if cantidad_total is not None else ""
     ubicacion = str(ubicacion).strip() if ubicacion is not None else ""
 
     if codigo == "" or titulo == "" or autor == "" or categoria == "" or ubicacion == "":
@@ -52,6 +53,7 @@ def listar_items(inventario):
     """Muestra en consola todos los ítems registrados."""
     if not inventario:
         print("No hay ítems registrados.")
+        print("\n")
         return []
 
     for item in inventario:
