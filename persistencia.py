@@ -8,5 +8,11 @@ def guardar_json(ruta, datos):
  
  
 def cargar_json(ruta):
+
+    try:
         with open (ruta, 'r', encoding='utf-8') as archivo:
             return json.load(archivo)
+    except FileNotFoundError:
+        return []
+    except json.JSONDecodeError:
+        return []
