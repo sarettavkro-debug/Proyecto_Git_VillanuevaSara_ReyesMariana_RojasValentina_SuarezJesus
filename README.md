@@ -30,23 +30,30 @@ Pendiente: Describir en qué archivo y línea apareció el conflicto, cómo se i
 
 ### Clonación del Repositorio (git clone)
 Para obtener una copia local del proyecto en el entorno de desarrollo:
+
 git clone https://github.com/sarettavkro-debug/Proyecto_Git_VillanuevaSara_ReyesMariana_RojasValentina_SuarezJesus
 #### Sincronización de Cambios (git pull)
 Para mantener la rama local actualizada con los últimos cambios en la nube:
+
 git pull origin main
 ### Explicación del comando git switch -c
 El comando git switch -c <nombre-rama> realiza dos acciones simultáneas:
 1. -c (create): Crea una nueva rama local.
 2. switch: Cambia el entorno de trabajo directamente a esa rama.
+
 Se utiliza para aislar el desarrollo de una nueva funcionalidad o corrección (fix/*) sin afectar la rama estable main.
 
 ## 2. Reproducción del Error en Terminal
 
 Al intentar cargar un archivo JSON inexistente, vacío o corrupto mediante la función cargar_json(), Python lanza una excepción:
 python -c "from persistencia import cargar_json; cargar_json('libros.json')"
+
 Resultado en consola:
+
 Traceback (most recent call last):
-FileNotFoundError: [Errno 2] No such file or directory: 'libros.json'
+
+FileNotFoundError: 
+[Errno 2] No such file or directory: 'libros.json'
  
 Ver captura: 
 ![Captura](./Imagenes/Captura1Error.png)
@@ -56,8 +63,7 @@ Ver captura:
 Se creó la rama aislada fix/carga-archivo-vacio para implementar la solución:
 git switch -c fix/carga-archivo-vacio
 git branch
-Salida de confirmación:
-feature/persistencia
+Salida de confirmación: feature/persistencia
 * fix/carga-archivo-vacio
 main
 Ver captura:
