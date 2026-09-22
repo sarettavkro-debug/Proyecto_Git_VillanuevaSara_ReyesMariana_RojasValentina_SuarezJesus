@@ -36,3 +36,5 @@ https://github.com/sarettavkro-debug/Proyecto_Git_VillanuevaSara_ReyesMariana_Ro
 jesus y Valentina
 
 link: https://drive.google.com/drive/folders/11oC8UiiHweiGcsoUbwqi3s50hQPPHHTJ?usp=sharing
+
+![Captura de pantalla](./Imagenes/CapturaPractica.png)
