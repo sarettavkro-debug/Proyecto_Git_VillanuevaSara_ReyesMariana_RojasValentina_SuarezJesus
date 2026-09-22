@@ -6,7 +6,10 @@ def guardar_json(ruta, datos):
     with open(ruta, "w", encoding="utf-8") as archivo:
         json.dump(datos, archivo, indent=2, ensure_ascii=False)
  
- 
+
 def cargar_json(ruta):
-        with open (ruta, 'r', encoding='utf-8') as archivo:
+    try:
+        with open(ruta, 'r', encoding='utf-8') as archivo:
             return json.load(archivo)
+    except (json.JSONDecodeError, FileNotFoundError):
+        return []
