@@ -6,7 +6,7 @@ def guardar_json(ruta, datos):
     with open(ruta, "w", encoding="utf-8") as archivo:
         json.dump(datos, archivo, indent=2, ensure_ascii=False)
  
- 
+
 def cargar_json(ruta):
 
     try:
