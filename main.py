@@ -6,14 +6,13 @@ from inventario import listar_items
 from inventario import buscar_item
 from prestamos import registrar_prestamo
 from prestamos import registrar_devolucion
-
-
-inventario={}
-prestamos={}
+from persistencia import guardar_json, cargar_json
 
 RUTA_INVENTARIO = "inventario.json"
 RUTA_PRESTAMOS = "prestamos.json"
 
+inventario = cargar_json(RUTA_INVENTARIO) or {}
+prestamos = cargar_json(RUTA_PRESTAMOS) or []
 
 while True:
     print()
@@ -29,6 +28,9 @@ while True:
     print("=" * 42)
     
     opcion = input("Por favor, seleccione una opcion: ")
+    while opcion not in ['1', '2', '3', '4', '5', '6']:
+        print("Opción inválida. Debe ingresar un número del 1 al 6.")
+        opcion = input("Por favor, seleccione una opcion: ")
     
     if opcion == '6':
         print("Saliste del programa, ¡hasta luego!")
@@ -45,6 +47,7 @@ while True:
         item_creado = registrar_item(inventario, codigo, titulo, autor, categoria, cantidad_total, ubicacion)
 
         if item_creado:
+            guardar_json(RUTA_INVENTARIO, inventario)
             print("¡Ítem registrado con éxito!")
             print("\n")
             
@@ -62,7 +65,7 @@ while True:
         if resultados:
             print("\n--- Ítems encontrados ---")
             for item in resultados:
-                print(f"Código: {item.get('codigo')} | Título: {item.get('titulo')} | Autor: {item.get('autor')} | Cantidad: {item.get('cantidad_total')}")
+                print(f"Código: {item.get('codigo')} | Título: {item.get('titulo')} | Autor: {item.get('autor')} | Cantidad: {item.get('cantidad_disponible')}")
         else:
             print("No se encontraron ítems que coincidan con la búsqueda.")
         
@@ -71,13 +74,23 @@ while True:
         usuario = input("Ingrese el nombre/ID del usuario: ")
         fecha = input("Ingrese la fecha (ej. YYYY-MM-DD): ")
 
-        registrar_prestamo(inventario, prestamos, codigo, usuario, fecha)
+        exito = registrar_prestamo(inventario, prestamos, codigo, usuario, fecha)
         
+        if exito:
+            guardar_json(RUTA_PRESTAMOS, prestamos)
+            guardar_json(RUTA_INVENTARIO, inventario)
+    
     elif opcion == '5':
         codigo = input("Ingrese el código del ítem: ")
         usuario = input("Ingrese el nombre/ID del usuario: ")
 
-        registrar_devolucion(inventario, prestamos, codigo, usuario)
+        exito_dev= registrar_devolucion(inventario, prestamos, codigo, usuario)
+        
+        if exito_dev:
+            guardar_json(RUTA_PRESTAMOS, prestamos)
+            guardar_json(RUTA_INVENTARIO, inventario)
+            
+        
         
     
     

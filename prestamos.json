@@ -1,0 +1,14 @@
+[
+  {
+    "codigo": "Lib098",
+    "usuario": "Sara",
+    "fecha": "2026-10-22",
+    "devuelto": false
+  },
+  {
+    "codigo": "Lib0098",
+    "usuario": "Sara",
+    "fecha": "2026-10-22",
+    "devuelto": true
+  }
+]

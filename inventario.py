@@ -22,8 +22,8 @@ def registrar_item(inventario, codigo, titulo, autor, categoria, cantidad_total,
 
     if codigo == "" or titulo == "" or autor == "" or categoria == "" or ubicacion == "":
         return None
-
-    if any(item.get("codigo") == codigo for item in inventario):
+    
+    if codigo in inventario:
         return None
 
     try:
@@ -44,48 +44,28 @@ def registrar_item(inventario, codigo, titulo, autor, categoria, cantidad_total,
         "ubicacion": ubicacion
     }
 
-    inventario.append(item)
+    inventario[codigo]= item
     return item
 
 
 def listar_items(inventario):
-    """Muestra en consola todos los ítems registrados."""
-    if not inventario:
-        print("No hay ítems registrados.")
-        print("\n")
-        return []
-
-    for item in inventario:
-        print(
-            f"Código: {item.get('codigo', '')} | "
-            f"Título: {item.get('titulo', '')} | "
-            f"Autor: {item.get('autor', '')} | "
-            f"Categoría: {item.get('categoria', '')} | "
-            f"Disponible: {item.get('cantidad_disponible', 0)}/{item.get('cantidad_total', 0)} | "
-            f"Ubicación: {item.get('ubicacion', '')}"
-        )
-
-    return inventario
+    items = inventario.values() if isinstance(inventario, dict) else inventario
+    
+    for item in items:
+        print(f"Código: {item.get('codigo', '')} | Título: {item.get('titulo', '')} | Autor: {item.get('autor', '')}")
 
 
 def buscar_item(inventario, termino):
-    """Busca ítems por código (exacto) o por título (parcial).
+    termino = termino.strip().lower()
+    resultados = []
+    
+    items = inventario.values() if isinstance(inventario, dict) else inventario
 
-    Devuelve una lista con los ítems encontrados.
-    """
-    if inventario is None:
-        return []
-
-    termino = str(termino).strip().lower() if termino is not None else ""
-    if termino == "":
-        return []
-
-    encontrados = []
-    for item in inventario:
+    for item in items:
         codigo = str(item.get("codigo", "")).strip().lower()
         titulo = str(item.get("titulo", "")).strip().lower()
 
-        if codigo == termino or termino in titulo:
-            encontrados.append(item)
+        if termino in codigo or termino in titulo:
+            resultados.append(item)
 
-    return encontrados
+    return resultados
