@@ -3,7 +3,6 @@
 #Jesus-Perez
 #funciones terminadas: registrar_item, listar_items, buscar_item
 #estoy de nuevo en mi rama
-
 def registrar_item(inventario, codigo, titulo, autor, categoria, cantidad_total, ubicacion):
     """Registra un ítem nuevo en el inventario.
 
