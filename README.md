@@ -34,7 +34,7 @@ El comando git switch -c <nombre-rama> realiza dos acciones simultáneas:
 Se utiliza para aislar el desarrollo de una nueva funcionalidad o corrección (fix/*) sin afectar la rama estable main.
 
 ## 2. Reproducción del Error en Terminal
-
+```bash
 Al intentar cargar un archivo JSON inexistente, vacío o corrupto mediante la función cargar_json(), Python lanza una excepción:
 python -c "from persistencia import cargar_json; cargar_json('libros.json')"
 
@@ -44,12 +44,12 @@ Traceback (most recent call last):
 
 FileNotFoundError: 
 [Errno 2] No such file or directory: 'libros.json'
- 
+ ```
 Ver captura: 
 ![Captura](./Imagenes/Captura1Error.png)
 
 ## 3. Creación de la Rama de Corrección (fix/*)
-
+```bash
 Se creó la rama aislada fix/carga-archivo-vacio para implementar la solución:
 git switch -c fix/carga-archivo-vacio
 git branch
@@ -57,15 +57,17 @@ Salida de confirmación: feature/persistencia
 * fix/carga-archivo-vacio
 main
 Ver captura:
+```
 ![Captura](Imagenes/Captura2Error.png)
 
 ## 4. Implementación del Manejo de Excepciones (try/except)
-
+```bash
 En el archivo persistencia.py, se estructuró la función con un bloque try/except para capturar json.JSONDecodeError y FileNotFoundError, devolviendo una lista vacía [] si ocurre un fallo:
+```
 ![Captura](Imagenes/Captura3Error.png)
 
 ## 5. Guardado, Commit y Push a GitHub
-
+```bash
 Se registraron los cambios en Git y se publicaron en el repositorio remoto:
 git add .
 git commit -m "fix: manejar archivo JSON vacío o corrupto"
@@ -75,57 +77,71 @@ Confirmación en terminal:
 4 files changed, 6 insertions(+), 3 deletions(-)
 create mode 100644 libros.json
 Ver captura:
+```
 ![Captura](Imagenes/Captura4Error.png)
 
 ## 6. Sincronización Final con la Rama main
 Posterior a la integración del Pull Request en GitHub por parte de Dev 1, se cambió a la rama main y se descargaron las actualizaciones:
+
+```bash
 git switch main
 git pull origin main
 Confirmación de actualización:
 Switched to branch 'main'
 Your branch is up to date with 'origin/main'.
 Ver captura:
+``` 
 ![Captura](Imagenes/Captura5Error.png)
 
 ## Repositorio
 https://github.com/sarettavkro-debug/Proyecto_Git_VillanuevaSara_ReyesMariana_RojasValentina_SuarezJesus
 
+```bash
 git config --global user.name "sarettavkro-debug"
 git config --global user.mail "saretta.vkro@gmail.com"
 mkdir Proyecto_Git_VillanuevaSara_ReyesMariana_RojasValentina_SuarezJesus
 cd Proyecto_Git_VillanuevaSara_ReyesMariana_RojasValentina_SuarezJesus
 git init
+```
 
 ## Comandos de Git utilizados
 
 ### 1. Los comandos usados en este proyecto se determianan según la etapa en la que estuvimos trabajando. Para empezar el proyecto requeria inicializar un repositorio, por eso era necesario empezar con estos comandos:
 
+```bash
 git config --global user.name "sarettavkro-debug"
 git config --global user.mail "saretta.vkro@gmail.com"
 mkdir Proyecto_Git_VillanuevaSara_ReyesMariana_RojasValentina_SuarezJesus
 cd Proyecto_Git_VillanuevaSara_ReyesMariana_RojasValentina_SuarezJesus
 git init
+```
 
 ### 2. Creamos nuestro primer commits y damos nombre a la rama principal del proyecto con estos comandos:
 
+```bash
 git add .
 git commit -m "feat: crear estructura inicial del proyecto"
 git branch -M main
 git remote add origin https://github.com/sarettavkro-debug/Proyecto_Git_VillanuevaSara_ReyesMariana_RojasValentina_SuarezJesus
 git push -u origin main
+```
 
 ### 3. Aquí inicia en trabajo independiente de cada desarrollador, para que pudieran participar en el código del repositorio correctamente fue necesari que escribieran estos comandos:
 
+```bash
 git config --global user.name "sarettavkro-debug"
 git config --global user.mail "saretta.vkro@gmail.com"
 git clone https://github.com/sarettavkro-debug/Proyecto_Git_VillanuevaSara_ReyesMariana_RojasValentina_SuarezJesus
 cd Proyecto_Git_VillanuevaSara_ReyesMariana_RojasValentina_SuarezJesus
 git switch -c feature/su-funcionalidad 
+```
 
 ### En el ultimo comando el desarrollador debía reemplazar "su-funcionalidad" según el rol asignado, en el caso del desarrollador 1 que fue asignado a fearure/menu-principal debia poner:
 git switch -c feature/menu-principal
 
 ### 4. A lo largo del proyecto los colaboladores reportaron haber usado comandos como estos cuando trabajaban dentro de su rama. 
+
+```bash
 git branch
 git status
 git add inventario.py
@@ -134,16 +150,24 @@ git push -u origin feature/registro-inventario
 git push
 git pull
 
+```
+
 ### Para unir ramas estos fueron los comandos más usados:
+
+```bash
 git switch main
 git pull origin main
 git merge feature/prestamos
+```
 
-Para traer informacion actualizada los comandos usados fueron:
+### Para traer informacion actualizada los comandos usados fueron:
+
+```bash
 git pull origin main
 git pull 
+```
 
-jesus y Valentina
+Cógigo de Jesús y Valentina:
 link: https://drive.google.com/drive/folders/11oC8UiiHweiGcsoUbwqi3s50hQPPHHTJ?usp=sharing
 
 
