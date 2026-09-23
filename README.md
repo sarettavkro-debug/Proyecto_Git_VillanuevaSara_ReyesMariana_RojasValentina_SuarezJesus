@@ -10,16 +10,6 @@ Sistema de inventario y préstamos por terminal en Python.
 
 Estado del proyecto: en desarrollo
 
-Estructura del proyecto
-Proyecto_Git_ApellidoNombre/
-├── main.py            # menú principal y flujo del programa
-├── inventario.py      # registrar, listar y buscar ítems
-├── prestamos.py       # registrar préstamos y devoluciones
-├── persistencia.py    # guardar y cargar datos en JSON
-├── capturas/          # capturas de pantalla para este README
-├── .gitignore
-└── README.md
-
 ## Resolución del conflicto de fusión
 
 Pendiente: Describir en qué archivo y línea apareció el conflicto, cómo se identificó (git status), cómo se resolvió y adjuntar las capturas.
@@ -100,12 +90,61 @@ Ver captura:
 ## Repositorio
 https://github.com/sarettavkro-debug/Proyecto_Git_VillanuevaSara_ReyesMariana_RojasValentina_SuarezJesus
 
+git config --global user.name "sarettavkro-debug"
+git config --global user.mail "saretta.vkro@gmail.com"
+mkdir Proyecto_Git_VillanuevaSara_ReyesMariana_RojasValentina_SuarezJesus
+cd Proyecto_Git_VillanuevaSara_ReyesMariana_RojasValentina_SuarezJesus
+git init
 
 ## Comandos de Git utilizados
-(Espacio para los desarrolladores)
+
+### 1. Los comandos usados en este proyecto se determianan según la etapa en la que estuvimos trabajando. Para empezar el proyecto requeria inicializar un repositorio, por eso era necesario empezar con estos comandos:
+
+git config --global user.name "sarettavkro-debug"
+git config --global user.mail "saretta.vkro@gmail.com"
+mkdir Proyecto_Git_VillanuevaSara_ReyesMariana_RojasValentina_SuarezJesus
+cd Proyecto_Git_VillanuevaSara_ReyesMariana_RojasValentina_SuarezJesus
+git init
+
+### 2. Creamos nuestro primer commits y damos nombre a la rama principal del proyecto con estos comandos:
+
+git add .
+git commit -m "feat: crear estructura inicial del proyecto"
+git branch -M main
+git remote add origin https://github.com/sarettavkro-debug/Proyecto_Git_VillanuevaSara_ReyesMariana_RojasValentina_SuarezJesus
+git push -u origin main
+
+### 3. Aquí inicia en trabajo independiente de cada desarrollador, para que pudieran participar en el código del repositorio correctamente fue necesari que escribieran estos comandos:
+
+git config --global user.name "sarettavkro-debug"
+git config --global user.mail "saretta.vkro@gmail.com"
+git clone https://github.com/sarettavkro-debug/Proyecto_Git_VillanuevaSara_ReyesMariana_RojasValentina_SuarezJesus
+cd Proyecto_Git_VillanuevaSara_ReyesMariana_RojasValentina_SuarezJesus
+git switch -c feature/su-funcionalidad 
+
+### En el ultimo comando el desarrollador debía reemplazar "su-funcionalidad" según el rol asignado, en el caso del desarrollador 1 que fue asignado a fearure/menu-principal debia poner:
+git switch -c feature/menu-principal
+
+### 4. A lo largo del proyecto los colaboladores reportaron haber usado comandos como estos cuando trabajaban dentro de su rama. 
+git branch
+git status
+git add inventario.py
+git commit -m "feat: agregar función registrar_item con validaciones"
+git push -u origin feature/registro-inventario
+git push
+git pull
+
+### Para unir ramas estos fueron los comandos más usados:
+git switch main
+git pull origin main
+git merge feature/prestamos
+
+Para traer informacion actualizada los comandos usados fueron:
+git pull origin main
+git pull 
 
 jesus y Valentina
-
 link: https://drive.google.com/drive/folders/11oC8UiiHweiGcsoUbwqi3s50hQPPHHTJ?usp=sharing
+
 
 
